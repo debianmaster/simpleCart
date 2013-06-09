@@ -67,32 +67,5 @@ exports.insertDummyData = function(){
 
 function update()
 {
-/*
-db.collection('Products', function(err, collection) {
-        collection.find({}, function(err, items) {
-            console.log(items);
-			for(var k in items){
-				db.collection('Products', function(err, collection) {							
-					var prdct =
-					{
-						name:"NRF24L01",
-						title:"1PCS Arduino NRF24L01+ Wireless Transceiver Module (create star or mesh network)",	
-						caption:"Easy, Cheap & long range wireless communication for MCU",
-						condition:"New",
-						cost:125,
-						shipping:55,
-						features:"We are the original importers of nordic devices, the first one to launch nRF24L01+ and nRF24LE01 in India. Please buy from us original and tested products and support innovation and research in India. When you buy from copycats, fake, and untested products, it hurts not only you in the long run, but everyone else",
-						documents:"",
-						contents:"<ul><li>One assembled and tested board</li><li>One 16x2 LCD</li><li>One DC Adapter (Not included in shipments out side India)</li><li>Set of 20 F-F Single Pin Connectors</li></ul>",	
-						sku:"i63-NRF24L01",
-						subCat:items[k].CatName+items[k].Sub,
-						images:["test1.png","test2.png","test3.png","test4.png"]	
-					}
-					collection.insert(prdct, {safe:true}, function(err, result) {
-									
-					});					
-				});							
-			}
-        });
-});*/
+	
 }
