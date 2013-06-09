@@ -1,0 +1,409 @@
+<div class="container-fluid">
+
+<div class="row-fluid toggler" isVisible='1' id="homeView">
+    <div class="span2" id="menuColumn">
+		<div class="well">
+        <ul class="nav nav-list">
+            <span data-bind="template:{name:'idCatTemplate',foreach:Cats}"></span> 	              
+        </ul>              
+		</div>	
+    </div>	    
+    <div class="span6" id="viewColumn">		
+		<div id="productsView" class="row middleView" style="margin-left:10px">			
+			<ul data-bind="foreach:products" class="thumbnails">
+			  <li class="span2">
+				<div class="thumbnail" rel="popover"  data-bind="attr:{'data-original-title':$data.name}"    data-content="It's so simple to create a tooltop for my website!">
+				  <img alt="" data-bind="attr:{src:$data.img}">
+				  <div class="caption">              
+					<h5 data-bind="text:$data.name"></h5>		        
+					<p>$<span data-bind="text:$data.price"></span></p>                
+					<a data-bind="click: $parent.addToCart" href="#" class="btn btn-mini btn-success" id="btnHomeViewAdd2Cart">
+					  <i class="icon-plus icon-white"></i> Add
+					</a>
+					<a data-bind="click: $parent.moreView" href="#" class="btn btn-mini btn-info pull-right">
+					  <i class="icon-resize-horizontal icon-white"></i> More
+					</a>
+				  </div>
+				</div>
+			  </li>
+			</ul>			
+		</div>			
+		<div id="shippingView" class="row hide middleView thumbnail">
+			<i class="icon icon-remove-circle pull-right" style="cursor:pointer" onclick="toggleCheckOut()"></i>
+			<div class="">				
+				<ul class="nav nav-tabs">
+					<li><a href="#email" data-toggle="tab" id="tabEmail">1) Email</a></li>
+					<li><a href="#ship" data-toggle="tab" id="tabShip">2) Shipping</a></li>
+					<li><a href="#orderSummary" data-toggle="tab" id="tabOrderSummary">3) Order Summary</a></li>
+					<li><a href="#payments" data-toggle="tab" id="tabPayments">4) Payment options</a></li>					
+				</ul>				
+			</div>
+			<div class="tab-content">
+			<div class="form-horizontal tab-pane" id="ship">
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail">Name</label>
+				<div class="controls">
+				  <input type="text" id="inputEmail" placeholder="Name">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Pincode</label>
+				<div class="controls">
+				  <input type="text" id="inputPassword" placeholder="Pincode">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Address</label>
+				<div class="controls">
+				  <textarea placeholder="Address"></textarea>
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Landmark</label>
+				<div class="controls">
+				  <input type="text" id="inputPassword" placeholder="Landmark">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">City</label>
+				<div class="controls">
+				  <input type="text" id="inputPassword" placeholder="Landmark">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">State</label>
+				<div class="controls">
+				  <select id="state" name="state">
+                        <option value="0">--Select State--</option>
+						<option value="Andaman and Nicobar Islands">Andaman and Nicobar</option><option value="Andhra Pradesh">Andhra Pradesh</option><option value="Arunachal Pradesh">Arunachal Pradesh</option><option value="Assam">Assam</option><option value="Bihar">Bihar</option><option value="Chandigarh">Chandigarh</option><option value="Chhattisgarh">Chhattisgarh</option><option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option><option value="Daman and Diu">Daman and Diu</option><option value="Delhi">Delhi</option><option value="Goa">Goa</option><option value="Gujarat">Gujarat</option><option value="Haryana">Haryana</option><option value="Himachal Pradesh">Himachal Pradesh</option><option value="Jammu and Kashmir">Jammu and Kashmir</option><option value="Jharkhand">Jharkhand</option><option value="Karnataka">Karnataka</option><option value="Kerala">Kerala</option><option value="Lakshadweep">Lakshadweep</option><option value="Madhya Pradesh">Madhya Pradesh</option><option value="Maharashtra">Maharashtra</option><option value="Manipur">Manipur</option><option value="Meghalaya">Meghalaya</option><option value="Mizoram">Mizoram</option><option value="Nagaland">Nagaland</option><option value="Odisha">Odisha</option><option value="Pondicherry">Pondicherry</option><option value="Punjab">Punjab</option><option value="Rajasthan">Rajasthan</option><option value="Sikkim">Sikkim</option><option value="Tamil Nadu">Tamil Nadu</option><option value="Tripura">Tripura</option><option value="Uttar Pradesh">Uttar Pradesh</option><option value="Uttrakhand">Uttrakhand</option><option value="West Bengal">West Bengal</option><option value="Army Post Office">Army Post Office</option>                                
+				  </select>
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Phone</label>
+				<div class="controls">
+				  <input type="text" id="inputPassword" placeholder="Phone">
+				</div>
+			  </div>
+			  <div class="control-group">
+				<label class="control-label" for="inputPassword">Country</label>
+				<div class="controls">
+				  India (Service only available in India)
+				</div>
+			  </div>
+			  <div class="control-group">
+			  <div class="controls">
+				<button type="button" class="btn btn-large btn-primary" onclick="$('#tabOrderSummary').click()">Save & Continue</button> &nbsp;&nbsp;
+				<button type="button" class="btn btn-small btn-info" onclick="toggleCheckOut()">Cancel & Back</button>
+			  </div>
+			  </div>
+			</div>
+			<div class="form-horizontal tab-pane active" id="email">
+			  <br><br>  		
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail">Email</label>
+				<div class="controls">
+				  <input type="text" id="inputEmail" placeholder="Email">
+				</div>
+			  </div>
+			  <div class="control-group">				
+				<div class="controls">
+				  <input type="radio" name="userChoice" data-bind="click: function(obj,evt){ window.vm.shippingWithPassword(!evt.target.checked); return true;}"> Continue without password				  
+				</div>
+			  </div>
+			  <div class="control-group">				
+				<div class="controls">
+				  <input data-bind="click: function(obj,evt){ window.vm.shippingWithPassword(evt.target.checked); return true;}" type="radio" id="radPasswordYes" name="userChoice"  /> I have a i63 account and password	<br><br>			  
+				</div>		
+					<span data-bind="visible:$root.shippingWithPassword">
+					<label class="control-label" for="inputEmail">Password</label>
+					<div class="controls">
+						<input type="password" id="i63Password" placeholder="Password">				  
+					</div>
+					</span>	
+			  </div>
+			  <div class="control-group">				
+				<div class="controls">				  
+					<button type="button" class="btn btn-large btn-primary" onclick="$('#tabShip').click()">Save & Continue</button> &nbsp;&nbsp;
+				</div>
+			  </div>
+			  <br><br><br><br><br><br><br><br>	
+			</div>
+			<div class="tab-pane" id="orderSummary">
+				<div class="span121">
+				<table class="table table-striped" id="summartCart" width="100%">
+					<thead>
+						<tr class="success">
+							<th style="width: 30px">
+								Qty.
+							</th>
+							<th>
+								Product
+							</th>
+							<th>
+								Cost
+							</th>							
+						</tr>
+					</thead>
+					<!-- Iterate over view_mode.products (Observable Array) -->
+					<tbody data-bind="foreach:cart">
+						<!-- This HTML within this <tbody></tbody> block will get rendered for each item in view_model.cart -->
+						<tr>
+							<td>
+								<!-- [CartItem] $data.quantity (Observable) -->
+								<span style="width: 28px" data-bind="text:$data.quantity"></span>
+							</td>
+							<td>
+								<!-- [CartItem] $data.product().name (Observable) -->
+								<span data-bind="text:$data.product().name"></span>
+							</td>
+							<td style="text-align: right">
+								<!-- [CartItem] $data.cost (Computed Observable) -->
+								$<span data-bind="text:$data.cost()"></span>
+							</td>							
+						</tr>
+					</tbody>
+				</table>
+				</div>
+				<div class="span121">						
+					<table class="table table-striped">
+					<tbody>
+						<tr>
+							<td>
+								<strong>Subtotal<strong>
+							</td>
+							<td style="text-align: right">
+								<!-- [ViewModel] view_model.cost (Computed Observable) -->
+								$<span data-bind="text:subtotal()"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Tax<strong>
+							</td>
+							<td style="text-align: right">
+								<!-- [ViewModel] view_model.cost (Computed Observable) -->
+								$<span data-bind="text:tax()"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Shipping<strong>
+							</td>
+							<td style="text-align: right">
+								<!-- [ViewModel] view_model.cost (Observable) -->
+								$<span data-bind="text:shipping_cost()"></span>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Total<strong>
+							</td>
+							<td style="text-align: right">
+								<!-- [ViewModel] view_model.cost (Computed Observable) -->
+								<strong>$<span data-bind="text:total()"></span></strong>
+							</td>
+						</tr>					
+					</tbody>
+					</table>										
+					<button type="button" class="btn btn-large btn-primary" onclick="$('#tabPayments').click()">Save & Continue</button>
+					<br>		
+				</div>
+				<br>
+			</div>
+			<div class="form-horizontal tab-pane" id="payments">
+			  <br><br>
+			  <div class="btn-group control-group">
+				<label class="control-label" for="inputEmail">Payment type</label>
+				<div class="controls">
+					<button class="btn pType btn-primary" data-bind="click:$root.highLight">Net Banking</button>
+					<button class="btn pType" data-bind="click:$root.highLight">Credit Card</button>
+					<button class="btn pType" data-bind="click:$root.highLight">Debit Card</button>
+				</div>	
+			  </div><br>	
+			  <div class="control-group">
+				<label class="control-label" for="inputEmail">Choose Your Bank</label>
+				<div class="controls">
+				  <select id="co_chnl_NetBankingPm">
+					<option value="0" name="------Select Bank------" available="1" mode="select" style="font-weight: bold; text-align: center; font-style: normal;">------Select Bank------</option><option value="CBIBAN_N" name="Citibank" available="1" mode="NetBankingPm">Citibank</option><option value="HDEB_N" name="HDFC Bank" available="1" mode="NetBankingPm">HDFC Bank</option><option value="IDEB_N" name="ICICI Bank" available="1" mode="NetBankingPm">ICICI Bank</option><option value="SBI_N" name="State Bank of India" available="1" mode="NetBankingPm">State Bank of India</option><optgroup label="---------------------" style="font-weight: bold; text-align: center; font-style: normal;"></optgroup><option value="UTI_N" name="AXIS Bank" available="1" mode="NetBankingPm">AXIS Bank</option><option value="ALB_N" name="Allahabad Bank" available="1" mode="NetBankingPm">Allahabad Bank</option><option value="AND_N" name="Andhra Bank" available="1" mode="NetBankingPm">Andhra Bank</option><option value="BOBAH_N" name="Bank of Bahrain and Kuwait" available="1" mode="NetBankingPm">Bank of Bahrain and Kuwait</option><option value="BOBCO_N" name="Bank of Baroda Corp Accnt" available="1" mode="NetBankingPm">Bank of Baroda Corp Accnt</option><option value="BOB_N" name="Bank of Baroda Retail Accnt" available="1" mode="NetBankingPm">Bank of Baroda Retail Accnt</option><option value="BOI_N" name="Bank of India" available="1" mode="NetBankingPm">Bank of India</option><option value="BOM_N" name="Bank of Maharashtra" available="1" mode="NetBankingPm">Bank of Maharashtra</option><option value="BOR_N" name="Bank of Rajasthan" available="1" mode="NetBankingPm">Bank of Rajasthan</option><option value="CAN_N" name="Canara Bank" available="1" mode="NetBankingPm">Canara Bank</option><option value="CEN_N" name="Central Bank of India" available="1" mode="NetBankingPm">Central Bank of India</option><option value="CBIBAN_N" name="Citibank" available="1" mode="NetBankingPm">Citibank</option><option value="CITIUB_N" name="City Union Bank" available="1" mode="NetBankingPm">City Union Bank</option><option value="COP_N" name="Corporation Bank" available="1" mode="NetBankingPm">Corporation Bank</option><option value="DEUNB_N" name="Deutsche Bank" available="1" mode="NetBankingPm">Deutsche Bank</option><option value="DCB_N" name="Development Credit Bank" available="1" mode="NetBankingPm">Development Credit Bank</option><option value="DHNB_N" name="Dhanlaxmi Bank" available="1" mode="NetBankingPm">Dhanlaxmi Bank</option><option value="DONO_N" name="Done Card" available="1" mode="NetBankingPm">Done Card</option><option value="FDEB_N" name="Federal Bank" available="1" mode="NetBankingPm">Federal Bank</option><option value="HDEB_N" name="HDFC Bank" available="1" mode="NetBankingPm">HDFC Bank</option><option value="IDEB_N" name="ICICI Bank" available="1" mode="NetBankingPm">ICICI Bank</option><option value="IDBI_N" name="IDBI Bank" available="1" mode="NetBankingPm">IDBI Bank</option><option value="ING_N" name="ING Vysya Bank" available="1" mode="NetBankingPm">ING Vysya Bank</option><option value="IOB_N" name="Indian Overseas Bank" available="1" mode="NetBankingPm">Indian Overseas Bank</option><option value="INBI_N" name="Indian bank" available="1" mode="NetBankingPm">Indian bank</option><option value="NIIB_N" name="IndusInd Bank" available="1" mode="NetBankingPm">IndusInd Bank</option><option value="JKB_N" name="Jammu &amp;amp; Kashmir Bank" available="1" mode="NetBankingPm">Jammu &amp; Kashmir Bank</option><option value="KTKB_N" name="Karnataka Bank" available="1" mode="NetBankingPm">Karnataka Bank</option><option value="KVB_N" name="Karur Vysya Bank" available="1" mode="NetBankingPm">Karur Vysya Bank</option><option value="NKMB_N" name="Kotak Mahindra Bank" available="1" mode="NetBankingPm">Kotak Mahindra Bank</option><option value="LVB_N" name="Lakshmi Vilas Bank" available="1" mode="NetBankingPm">Lakshmi Vilas Bank</option><option value="OBC_N" name="Oriental Bank of Commerce" available="1" mode="NetBankingPm">Oriental Bank of Commerce</option><option value="PNBCO_N" name="Punjab National Bank Corp Accnt" available="1" mode="NetBankingPm">Punjab National Bank Corp Accnt</option><option value="NPNB_N" name="Punjab National Bank Retail Accnt" available="1" mode="NetBankingPm">Punjab National Bank Retail Accnt</option><option value="SIB_N" name="South Indian Bank" available="1" mode="NetBankingPm">South Indian Bank</option><option value="STDC_N" name="Standard Chartered Bank" available="1" mode="NetBankingPm">Standard Chartered Bank</option><option value="SBBJ_N" name="State Bank of Bikaner and Jaipur" available="1" mode="NetBankingPm">State Bank of Bikaner and Jaipur</option><option value="SBH_N" name="State Bank of Hyderabad" available="1" mode="NetBankingPm">State Bank of Hyderabad</option><option value="SBI_N" name="State Bank of India" available="1" mode="NetBankingPm">State Bank of India</option><option value="SBM_N" name="State Bank of Mysore" available="1" mode="NetBankingPm">State Bank of Mysore</option><option value="SBP_N" name="State Bank of Patiala" available="1" mode="NetBankingPm">State Bank of Patiala</option><option value="SBT_N" name="State Bank of Travancore" available="1" mode="NetBankingPm">State Bank of Travancore</option><option value="SYNBK_N" name="Syndicate Bank" available="1" mode="NetBankingPm">Syndicate Bank</option><option value="TNMB_N" name="Tamilnad Mercantile Bank" available="1" mode="NetBankingPm">Tamilnad Mercantile Bank</option><option value="UNI_N" name="Union Bank of India" available="1" mode="NetBankingPm">Union Bank of India</option><option value="UNITD_N" name="United Bank of India" available="1" mode="NetBankingPm">United Bank of India</option><option value="VJYA_N" name="Vijaya Bank" available="1" mode="NetBankingPm">Vijaya Bank</option><option value="YES_N" name="YES Bank" available="1" mode="NetBankingPm">YES Bank</option>
+				  </select>
+				</div>
+			  </div><br><br>
+			  <div class="control-group">				
+				<div class="controls">				  
+					<button type="button" class="btn btn-large btn-primary">Continue to payment</button> &nbsp;&nbsp;
+				</div>
+			  </div>
+			  <br><br><br><br><br><br><br><br>
+			  <br><br><br><br><br><br><br><br>			  
+			</div>	
+			</div>	
+		</div>
+		<div class="row middleView hide form-horizontal" id="moreView" data-bind="template:{name:'idMoreViewTemplate',foreach:currProduct}">
+			
+		</div>	
+    </div>
+    <div class="span4" id="cartColumn">
+		<div class="row">
+            <table class="table table-bordered" id="cart" width="100%">
+            <thead>
+                <tr>
+                    <th style="width: 30px">
+                        Qty.
+                    </th>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Cost
+                    </th>
+                    <th style="width: 75px">
+                        Actions <i class="icon-resize-full icon-black pull-right" style="cursor: pointer">
+                        </i>
+                    </th>
+                </tr>
+            </thead>
+            <!-- Iterate over view_mode.products (Observable Array) -->
+            <tbody data-bind="foreach:cart">
+                <!-- This HTML within this <tbody></tbody> block will get rendered for each item in view_model.cart -->
+                <tr>
+                    <td>
+                        <!-- [CartItem] $data.quantity (Observable) -->
+                        <input style="width: 28px" data-bind="value:$data.quantity,event:{change:$root.qtyChanged}"/>
+                    </td>
+                    <td>
+                        <!-- [CartItem] $data.product().name (Observable) -->
+                        <span data-bind="text:$data.product().name"></span>
+                    </td>
+                    <td style="text-align: right">
+                        <!-- [CartItem] $data.cost (Computed Observable) -->
+                        $<span data-bind="text:($data.cost()).toFixed(2)"></span>
+                    </td>
+                    <td style="text-align: center">
+                        <!-- 
+                  - $parent is a special object used to reach above the scope of the foreach loop we're currently in.
+                  - Events binding `click:$parent.removeFromCart` executes an Action Method in the View Model
+                  - Knockout automaticlly passes $data as the first parameter, and the `events` object as the second parameter.
+                -->
+                        <a href="#" class="btn btn-mini btn-danger" data-bind="click:$parent.removeFromCart">
+                            <i class="icon-remove icon-white"></i>Remove </a>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td>
+                            <strong>Subtotal<strong>
+                        </td>
+                        <td style="text-align: right">
+                            <!-- [ViewModel] view_model.cost (Computed Observable) -->
+                            $<span data-bind="text:subtotal()"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Tax<strong>
+                        </td>
+                        <td style="text-align: right">
+                            <!-- [ViewModel] view_model.cost (Computed Observable) -->
+                            $<span data-bind="text:tax()"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Shipping<strong>
+                        </td>
+                        <td style="text-align: right">
+                            <!-- [ViewModel] view_model.cost (Observable) -->
+                            $<span data-bind="text:shipping_cost()"></span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>Total<strong>
+                        </td>
+                        <td style="text-align: right">
+                            <!-- [ViewModel] view_model.cost (Computed Observable) -->
+                            <strong>$<span data-bind="text:total()"></span></strong>
+                        </td>
+                    </tr>					
+                </tbody>
+            </table>
+			<span>
+				<input data-bind="visible:isVisible('productsView')" type='button' class='btn btn-large btn-primary' value='Checkout' onclick="toggleCheckOut()">
+			</span>
+			<span class="pull-right">
+				<button type="button" class="btn btn-small btn-info" data-bind='click:$root.emptyCart'>Empty Cart</button>
+			</span>			
+		 </div>		
+        </div>   
+ </div> 
+</div> <!-- /container -->
+
+
+<script type="text/html" id="idCatTemplate">
+    <li class="nav-header" data-bind="text:CatName"></li>              
+    <span data-bind="template:{name:'idSubCatTemplate',foreach:SubCats}"></span>
+</script>
+<script type="text/html" id="idSubCatTemplate">
+	<li><a data-bind="attr:{'href':'#'},text:name,click:function(obj){vm.currSubCat(obj.id)}"></a></li>
+</script>
+<script type="text/html" id="idMoreViewTemplate">
+<div class="row-fluid">
+	<span class="pull-right" data-bind="click:$root.compactView" id="spnCartImg">
+		<span data-bind="text:$root.cart().length"></span>
+		<img  style="cursor:pointer" src='http://cdn4.iconfinder.com/data/icons/pictype-free-vector-icons/16/cart-empty-32.png' alt=''/>
+	</span>
+	<div class="span3">	
+		<div class="thumbnail">
+			<img data-bind="attr:{src:images[0]}" alt="" id="imgMain"/>
+			<hr>
+			<ul class="thumbnails" data-bind="foreach:images">
+		<li class="span1"><div class="thumbnail"><img src="http://placehold.it/48x48" alt="" data-bind="attr:{src:$data},click:$root.imageClick"></div></li>	
+			</ul>
+			   </div>
+		<hr/>
+		<h3>Documents</h3>
+		<p data-bind="html:documents"></p>
+	</div>
+	<div class="span7">   
+		<h3 data-bind="html:title"></h3>	
+		<a data-bind="click:$root.compactView" href="#" class="btn btn-info pull-right">
+			<i class="icon-arrow-left icon-white"></i> Previous Page
+		</a>
+		<h5 data-bind="html:caption"></h5><hr>
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Item Condition</label>
+			<div class="controls">
+			   <span>New</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Quantity</label>
+			<div class="controls">
+			   <span><input type="text" size="4" value="1" class="input-small" id="moreViewQuantity"></span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Price</label>
+			<div class="controls">
+			   <span><b data-bind="html:price"></b></span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label" for="inputEmail">Shipping</label>
+			<div class="controls">
+			   <span><b>Rs. <span data-bind="html:shipping"></span> - Flat Rate Courier - Delivery anywhere in India</b></span>
+			   <a href="#" class="btn btn-mini btn-info pull-right" data-bind="click:$root.addToCart" id="btnMoreViewAdd2Cart">
+			<i class="icon-plus icon-white"></i> Add to cart
+			   </a>
+			</div>
+		</div>	
+		<hr>
+		<h3>Features</h3>
+		<p data-bind="html:features"></p>
+	</div>
+</div>	
+</script>			
