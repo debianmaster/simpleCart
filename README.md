@@ -1,4 +1,4 @@
-SimpleCart is online shopping portal buil on nodejs /  mongodb / knockoutjs / bootstrap
+SimpleCart is online shopping portal built on nodejs /  mongodb / knockoutjs / bootstrap
 
 
 <h2> Demo:- </h2>
