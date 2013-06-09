@@ -1,4 +1,4 @@
-var connection="mongodb://admin:computer@dharma.mongohq.com:10016/store";
+var connection="mongodb://default:default@dharma.mongohq.com:10016/store";
 var Server = require('mongodb').Server,
     db;
 var mongodb = require('mongodb');
