@@ -20,4 +20,5 @@ Where is the db?<br>
 i have created a ready only user on mongohq    <b>default/default</b>. <br>
 Check store/api/routes/store.js for more details<br>
 
-
+Pic:- 
+<img src='https://raw.github.com/debianmaster/simpleCart/master/static/img/SimpleCart.png'/>
