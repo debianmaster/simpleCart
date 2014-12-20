@@ -22,3 +22,6 @@ Check store/api/routes/store.js for more details<br>
 
 Pic:- 
 <img src='https://raw.github.com/debianmaster/simpleCart/master/static/img/SimpleCart.png'/>
+
+
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/debianmaster/simpleCart?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
