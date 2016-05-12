@@ -1,9 +1,6 @@
 SimpleCart is online shopping portal built on nodejs /  mongodb / knockoutjs / bootstrap
 
 
-<h2> Demo:- </h2>
-http://i63.in:4000
-
 
 <h2>Usage:-</h2>
 
@@ -13,7 +10,7 @@ run two instances of node<br>
 2) Web App:-     <b>c:\\> node store/server.js</b>    --this runs on port 4000<br>
 
 <b>Step 2)</b><br>
-Now goto   http://localhost:4000/   to view the portal
+Now goto   http://localhost:8080/   to view the portal
 
 <hr/>
 Where is the db?<br>

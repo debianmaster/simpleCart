@@ -17,8 +17,7 @@ app.get('/store/:id', store.findById);
 app.get('/store', store.findAll);
 app.get('/cats', store.getAllCategories);
 
-app.listen(3000);
-console.log('Listening on port 3000...');
+app.listen(process.env.API_PORT || 8089);
 
 setTimeout(function(){
 	//tore.insertDummyData();

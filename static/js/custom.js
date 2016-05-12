@@ -1,5 +1,7 @@
 window.vm = null;
-var url="http://i63.in:3000";
+var suburl=window.location.hostname;
+if(suburl.indexOf('portal')==-1) suburl+=":8089";
+var url = "http://"+suburl.replace('portal','api');
 var togglers=['moreView','homeView'];
 var togglers2=['#productsView','#moreView','#shippingView'];
 /*
