@@ -5,7 +5,7 @@
  * the Express app object.
  */
 
-var app = require('./app').init(4000);
+var app = require('./app').init(process.env.PORT || 8080);
 
 var locals = {
         title: 		 'Embedded Market',
