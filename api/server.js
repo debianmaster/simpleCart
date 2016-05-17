@@ -17,7 +17,7 @@ app.get('/store/:id', store.findById);
 app.get('/store', store.findAll);
 app.get('/cats', store.getAllCategories);
 
-app.listen(process.env.API_PORT || 8089);
+app.listen(process.env.API_PORT || process.env.PORT || 8089);
 
 setTimeout(function(){
 	//tore.insertDummyData();
