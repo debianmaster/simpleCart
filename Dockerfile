@@ -1,4 +1,4 @@
-FROM node:argon
+FROM docker.io/node:argon
 
 # Create app directory
 RUN mkdir -p /usr/src/app
