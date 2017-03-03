@@ -20,5 +20,5 @@ app.get('/cats', store.getAllCategories);
 app.listen(8080);
 
 setTimeout(function(){
-	//tore.insertDummyData();
+	store.insertDummyData();
 },5000);
