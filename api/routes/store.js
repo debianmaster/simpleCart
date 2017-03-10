@@ -1,12 +1,11 @@
 var connection="mongodb://default:default@dharma.mongohq.com:10016/store";
-//mongodb://app_user:password@mongodb/sampledb
 var Server = require('mongodb').Server,
     db;
 var mongodb = require('mongodb');
-db = new mongodb.Db('store', new mongodb.Server('mongodb', 10016, {auto_reconnect:true}), {});
+db = new mongodb.Db('store', new mongodb.Server('mongodb', 27017, {auto_reconnect:true}), {});
 
 db.open(function(err, p_client) {  
-  db.authenticate('default', 'default', function(err) {   
+  db.authenticate('app_user', 'password', function(err) {   
    if (err) console.log(err);      
    console.log("logggedin");
   });
