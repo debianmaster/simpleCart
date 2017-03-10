@@ -61,12 +61,7 @@ exports.insertDummyData = function(){
 	];		
 	db.collection('Categories', function(err, collection) {							
 		collection.insert(categories, {safe:true}, function(err, result) {
-			//update();			
+			console.log("data inserted");	
 		});					
 	});		
 };
-
-function update()
-{
-	
-}
