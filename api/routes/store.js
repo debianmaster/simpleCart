@@ -8,7 +8,6 @@ db.open(function(err, p_client) {
   db.authenticate('app_user', 'password', function(err) {   
    if (err) console.log(err);      
    console.log("logggedin");
-   insertDummyData();
   });
 }); 
 
