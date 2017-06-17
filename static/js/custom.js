@@ -1,5 +1,5 @@
 window.vm = null;
-var url = "http://shop-api-dev.10.0.0.145.xip.io/";
+var url = "http://shop-api-dev.10.0.0.145.xip.io";
 var togglers=['moreView','homeView'];
 var togglers2=['#productsView','#moreView','#shippingView'];
 /*
