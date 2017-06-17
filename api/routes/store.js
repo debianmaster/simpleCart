@@ -60,7 +60,19 @@ exports.insertDummyData = function(){
 	];		
 	db.collection('Categories', function(err, collection) {							
 		collection.insert(categories, {safe:true}, function(err, result) {
-			console.log(err,result,"data inserted");	
+			console.log(err,result,"cat data inserted");	
 		});					
-	});		
+	});
+	
+	var products=[ {name:"Wire",title:"Wire",img:'img/storeImages/08566-01-L_l_th.jpg',images:['storeImages/08566-01-L_l_th.jpg'],
+        documents:"Wire",features:"Wire",shipping:55,caption:"",price:20,subCat:1}]
+	
+	db.collection('Products', function(err, collection) {							
+		collection.insert(products, {safe:true}, function(err, result) {
+			console.log(err,result,"products data inserted");	
+		});					
+	});
+    }
 };
+
+
