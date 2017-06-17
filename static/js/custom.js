@@ -1,7 +1,5 @@
 window.vm = null;
-var suburl=window.location.hostname;
-if(suburl.indexOf('portal')==-1) suburl+=":8089";
-var url = "http://"+suburl.replace('portal','api');
+var url = "http://shop-api-dev.10.0.0.145.xip.io/";
 var togglers=['moreView','homeView'];
 var togglers2=['#productsView','#moreView','#shippingView'];
 /*
