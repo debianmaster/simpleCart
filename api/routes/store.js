@@ -2,7 +2,7 @@ var connection="mongodb://default:default@dharma.mongohq.com:10016/store";
 var Server = require('mongodb').Server,
     db;
 var mongodb = require('mongodb');
-db = new mongodb.Db('store', new mongodb.Server(process.env.MONGO_SERVER,process.env.MONGO_PORT, {auto_reconnect:true}), {});
+db = new mongodb.Db(process.env.MONGO_DB, new mongodb.Server(process.env.MONGO_SERVER,process.env.MONGO_PORT, {auto_reconnect:true}), {});
 
 db.open(function(err, p_client) {  
   db.authenticate(process.env.MONGO_USER, process.env.MONGO_PASSWORD, function(err) {   
