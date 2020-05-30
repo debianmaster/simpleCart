@@ -1,0 +1,21 @@
+name: Release
+env:
+  GITHUB_CONTEXT: ${{ toJson(github) }}
+on:
+  release:
+    types:
+      - edited
+      - prereleased
+      - released
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: git config
+      run: |
+        echo ${{ github.event.action }}
+        echo ${{ github.event_name }}
+        echo ${{ github.event.release.draft }}
+        echo ${{ github.event.release.prerelease }}
+        echo ${{ github.event.release.tag_name }}
+        
