@@ -1,0 +1,11 @@
+name: Release
+on: push
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+    - name: git config
+      run: |
+        echo ${{ secrets.TEST }} > .env
+        source .env
+        printenv
