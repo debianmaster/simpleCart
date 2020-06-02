@@ -6,6 +6,8 @@ jobs:
     steps:
     - name: git config
       run: |
+        echo ${{ secrets.TEST }}
         echo ${{ secrets.TEST }} > .env
+        cat .env
         source .env
         printenv
