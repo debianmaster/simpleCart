@@ -1,12 +1,14 @@
 name: Release
 on: push
+env:
+  test: ${{ secrets.TEST }}
 jobs:
   setup:
     runs-on: ubuntu-latest
     steps:
     - name: git config
       run: |
-        echo ${{ secrets.TEST }}
+        echo "$test" > .env
         echo ${{ secrets.TEST }} > .env
         cat .env
         source .env
